@@ -1,2 +1,14 @@
-<p>{{monsterName}}</p>
+<p>Selected Monster: {{ monsterSelected.monsterName }}</p>
+<button type="button"
+  [disabled]="!monsterSelected.monsterName"
+  (click)="generatePower()">Generate Power</button>
+<p *ngIf="monsterSelected.monsterPower">{{ monsterSelected.monsterName }} has a power of {{ monsterSelected.monsterPower }}</p>
+<hr>
+<p>All monsters:</p>
+<ul>
+  <li *ngFor="let monster of monsters">
+    {{monster.monsterName}} has {{monster.monsterPower}} power!
+  </li>
+</ul>
 
+<input type="text" placeholder="Enter Hero Name"> <button type="button" (click)="generateHeroPower()" *ngIf="">Select</button>
