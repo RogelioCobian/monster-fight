@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
  // monsterPower: number;
 
 hero: any = {
-  name: 'Internet',
+  name: '',
   power: null
 };
 
@@ -45,7 +45,7 @@ hero: any = {
 
  }
  generateHeroPower() {
-  this.monsterSelected.monsterPower = Math.floor(Math.random() * 1000);
-
+  this.hero.power = Math.floor(Math.random() * 1000);
+  // console.log(this.hero.power);
  }
 }

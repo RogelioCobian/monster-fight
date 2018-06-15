@@ -6,9 +6,11 @@
 <hr>
 <p>All monsters:</p>
 <ul>
-  <li *ngFor="let monster of monsters">
+  <li *ngFor="let monster of monsters" [ngStyle]="{'background-color': hero.power ? (monster.monsterPower > hero.power ? 'red': '') : ''}">
     {{monster.monsterName}} has {{monster.monsterPower}} power!
   </li>
 </ul>
 
-<input type="text" placeholder="Enter Hero Name"> <button type="button" (click)="generateHeroPower()" *ngIf="">Select</button>
+<input type="text" [(ngModel)]= "hero.name" placeholder="Enter Hero Name" *ngIf="!hero.power">
+<button type="button" (click)="generateHeroPower()" [disabled]="!hero.name" *ngIf="!hero.power">Select</button>
+<p *ngIf="hero.power">The power og hero is {{ hero.power }}</p>
